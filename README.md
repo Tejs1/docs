@@ -165,7 +165,7 @@ Shift all other items by -1 at a given index:
 $ mdtool remove INDEX
 
 # e.g.:
-$ mdtool remove 2
+$ mdtool  remove 2
 
 # Result: 01-a, 02-b, 03-c, 04-d becomes 01-a, 02-b, 02-c, 03-d; 02-b is supposed to be manually deleted
 ```
