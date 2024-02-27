@@ -4,7 +4,7 @@ module.exports = {
     baseUrl: 'http://172.17.0.1:9000',
     mask: [{ selector: 'span.gatsby-resp-image-background-image' }],
   },
-  lostPixelProjectId: 'clb5ek3mm1772001qqg7yban38',
+  lostPixelProjectId: 'clt4a10277si8ll0e5lz7wwue',
   apiKey: process.env.LOST_PIXEL_API_KEY,
   compareConcurrency: 10,
   shotConcurrency: 10,
