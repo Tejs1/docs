@@ -17,16 +17,17 @@ const CustomButton = styled.button<{ mdx?: string }>`
 `
 
 const CustomLink = ({ href, mdx, ...props }: any) => {
-  const target =
-    href.includes('prisma.io') && !href.includes('slack.prisma.io') ? '_self' : '_blank'
-  const rel = href.includes('prisma.io') ? '' : 'noopener noreferrer'
-
+  const goToPath = () => {
+    window.open(
+      href,
+      href.includes('prisma.io') && !href.includes('slack.prisma.io') ? '_self' : '_blank',
+      href.includes('prisma.io') ? '' : 'noopener'
+    )
+  }
   return (
-    <a href={href} target={target} rel={rel}>
-      <CustomButton {...props} mdx={mdx}>
-        {props.children}
-      </CustomButton>
-    </a>
+    <CustomButton onClick={goToPath} {...props} mdx={mdx}>
+      {props.children}
+    </CustomButton>
   )
 }
 
