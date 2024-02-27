@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-const StyledLink = styled.a<{ mdx?: string }>`
+const CustomButton = styled.button<{ mdx?: string }>`
   background: transparent;
   border: none;
   padding: 0;
@@ -17,14 +17,17 @@ const StyledLink = styled.a<{ mdx?: string }>`
 `
 
 const CustomLink = ({ href, mdx, ...props }: any) => {
-  const target =
-    href.includes('prisma.io') && !href.includes('slack.prisma.io') ? '_self' : '_blank'
-  const rel = href.includes('prisma.io') ? '' : 'noopener noreferrer'
-
+  const goToPath = () => {
+    window.open(
+      href,
+      href.includes('prisma.io') && !href.includes('slack.prisma.io') ? '_self' : '_blank',
+      href.includes('prisma.io') ? '' : 'noopener'
+    )
+  }
   return (
-    <StyledLink {...props} mdx={mdx} href={href} target={target} rel={rel}>
+    <CustomButton onClick={goToPath} {...props} mdx={mdx}>
       {props.children}
-    </StyledLink>
+    </CustomButton>
   )
 }
 
